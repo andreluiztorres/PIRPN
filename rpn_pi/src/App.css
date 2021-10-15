@@ -5,6 +5,14 @@ background-color: #ffc518;
 .BarrSup { 
  box-shadow: 5px 5px 5px '#000'
 }
+.Avatar{
+position: absolute;
+right: 8px;
+top: 8px;
+display: flex;
+justify-content: end;
+box-shadow: 5px 5px 5px '#000';
+}
 
 .Card {
   
