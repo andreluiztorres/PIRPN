@@ -12,7 +12,7 @@ const Hall = () => {
         {
         Id: 1,
         Nome: 'Sala 1',
-        Descricao: "Sala de jogo nunmero 1",
+        Descricao: "Sala de jogo nunmero 10",
         },
         {
         Id: 2,
