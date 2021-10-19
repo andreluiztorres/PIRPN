@@ -8,6 +8,52 @@ import Avatar from 'react-avatar';
 
 const Hall = () => {
 
+    const listaSala = [ 
+        {
+        Id: 1,
+        Nome: 'Sala 1',
+        Descricao: "Sala de jogo nunmero 1",
+        },
+        {
+        Id: 2,
+        Nome:' Sala 2',
+        Descricao: "Sala de jogo nunmero 2",
+        },
+        {
+        Id: 3,
+        Nome: 'Sala 3',
+        Descricao: "Sala de jogo nunmero 3",
+        },
+        {
+        Id: 4,
+        Nome: 'Sala 4',
+        Descricao: 'Sala de jogo nunmero 4',
+        }
+    ]
+            
+ 
+    const listaItens = listaSala.map( (f) => 
+    
+    <Card className='CardLista'>
+        <CardBody>
+            <Row>
+                <Col>
+                Sala: {f.Nome}
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                Descrição: {f.Descricao}
+                </Col>
+            </Row>
+        </CardBody>
+    </Card>
+
+    )
+
+  
+
+
     return(
         
         <><br />
@@ -40,8 +86,9 @@ const Hall = () => {
                 </Col>
                 </Row>
             </CardHeader>
-            <CardBody style={{padding: '20px'}} ><br />
             
+            <CardBody style={{padding: '20px'}} ><br />
+            {listaItens}
             </CardBody>
         </Card>
     </Col>
@@ -77,6 +124,7 @@ const Hall = () => {
         </Card>
     </Col>
 </Row>
+
         </>        
     
     )
