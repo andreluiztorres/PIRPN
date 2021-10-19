@@ -3,7 +3,7 @@ background-color: #ffc518;
 }
 
 .BarrSup { 
- box-shadow: 5px 5px 5px '#000'
+ box-shadow: 5px 5px 5px 1.5px #000
 }
 .Avatar{
 position: absolute;
@@ -11,7 +11,7 @@ right: 8px;
 top: 8px;
 display: flex;
 justify-content: end;
-box-shadow: 5px 5px 5px '#000';
+box-shadow: 5px 5px 5px 1.5px "#000";
 }
 
 .Card {
@@ -19,7 +19,7 @@ box-shadow: 5px 5px 5px '#000';
   margin-right: 40px;
   background-color: #4e2779;
   border-radius: 15px;
-  box-shadow: 5px 5px 5px '#000';
+  box-shadow: 5px 5px 5px 1.5px #000;
   margin-top: 10%;
 }
 
@@ -28,8 +28,11 @@ box-shadow: 5px 5px 5px '#000';
   margin-right: 40px;
   background-color: #d8a20d;
   border-radius: 15px;
-  box-shadow: 5px 5px 5px '#000';
+  box-shadow: 5px 5px 5px 1.5px #000;
   margin-top: 10%;
+  padding: 3.5rem;
+  width: 31.8rem;
+
 }
 
 
