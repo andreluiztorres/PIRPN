@@ -26,11 +26,12 @@ box-shadow: 5px 5px 5px 1.5px "#000";
 .CardLista {
   
   margin-right: 40px;
-  background-color: #d8a20d;
-  border-radius: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
   box-shadow: 5px 5px 5px 1.5px #000;
   margin-top: 10%;
-  padding: 3.5rem;
+  padding: 1.5rem;
+  margin-left: 8px;
   width: 31.8rem;
 
 }
