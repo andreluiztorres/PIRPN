@@ -167,7 +167,7 @@ const Hall = () => {
          { Personagens.map(( slideImage ,  index ) =>  ( 
             < div style={{padding: '30px', marginTop: '-30px' }}  className = "each-slide"  key = { index } > 
               < div  style = {{ backgroundImage: 'url(' + slideImage.img + ')', backgroundSize: 'cover',
-            overflow: 'hidden', height: '400px'}}>
+            overflow: 'hidden', height: '250px', padding: '400px'}}>
                 <span style={{color: '#fff', fontWeight: 'bold', marginTop: '30px', marginLeft: '20px'}}>{slideImage.descricao}</span>
               </div>
             </div>
