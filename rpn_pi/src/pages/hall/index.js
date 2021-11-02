@@ -5,8 +5,36 @@ import FotoTeste from '../../assets/images/FotoTeste.jpg'
 import { Search, LogIn, Lock } from 'react-feather';
 import Avatar from 'react-avatar';
 import YouTube from 'react-youtube';
+import { Slide } from 'react-slideshow-image';
 
 
+const opts = {
+    height: '390',
+    width: '800',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  }
+
+  let Personagens = [
+    {
+      id: 1,
+      descricao: 'Orcs',
+      img: 'https://img.quizur.com/f/img5d5dfc1db37f33.23328030.jpg?lastEdited=1566440489'
+    },
+    {
+      id: 2,
+      descricao: 'Guerreiro',
+      img: 'https://ovelhinhodorpg.files.wordpress.com/2015/11/807070cb0794525a7c7ffc6b0342375a.jpg'
+    },
+    {
+      id: 3,
+      descricao: 'Mago',
+      img: 'https://cdn.ligadosgames.com/imagens/nomes-para-personagens-de-rpg-og.jpg'
+    }
+  ];
+ 
 const Hall = () => {
 
     const listaSala = [ 
@@ -127,23 +155,26 @@ const Hall = () => {
     <Col sm='8' >
         <Card className='Card' style={{ marginTop: '45px'}}>
             <CardHeader style={{color: '#fff', fontWeight: 'bold', padding: '10px', marginLeft: '10px'}}><h4><strong> Entenda como jogar ? </strong></h4></CardHeader>
-            <CardBody style={{padding: '20px'}} ><YouTube></YouTube><br />
-            <div style={{display: "flex", justifyContent: "center"}}><Button color='danger' size='lg'>Jogue Agora</Button></div>
+            <CardBody style={{display: 'flex', justifyContent: 'center'}} ><YouTube videoId='amiNCKwzh7s' opts={opts}></YouTube><br />
+           
             </CardBody>
         </Card>
         <br />
         <Card className='Card' style={{ marginTop: '5px'}}>
-            <CardHeader style={{color: '#fff', fontWeight: 'bold', padding: '10px', marginLeft: '10px'}}><h3><strong> O que é RPN ? </strong></h3></CardHeader>
-            <CardBody style={{padding: '20px'}} ><Input
-            name='textoInicial'
-            id='textoInicial'
-            type='textarea'
-            value='A sigla RPG, oriunda da expressão em inglês “Role Playing Game”, define um estilo de jogo em que as pessoas interpretam seus personagens, criando narrativas, histórias e um enredo guiado por uma delas, que geralmente leva o nome de mestre do jogo.'
-            style={{padding: '20px', height: "200px"}}
-            disabled
-            >
-            </Input><br />
-            <div style={{display: "flex", justifyContent: "center"}}><Button color='danger' size='lg'>Jogue Agora</Button></div>
+            <CardHeader style={{color: '#fff', fontWeight: 'bold', padding: '10px', marginLeft: '10px'}}><h3><strong> Galeria de Players </strong></h3></CardHeader>
+            <CardBody >< div  className = "slide-container" > 
+        < Slide > 
+         { Personagens.map(( slideImage ,  index ) =>  ( 
+            < div style={{padding: '30px', marginTop: '-30px' }}  className = "each-slide"  key = { index } > 
+              < div  style = {{ backgroundImage: 'url(' + slideImage.img + ')', backgroundSize: 'cover',
+            overflow: 'hidden', height: '400px'}}>
+                <span style={{color: '#fff', fontWeight: 'bold', marginTop: '30px', marginLeft: '20px'}}>{slideImage.descricao}</span>
+              </div>
+            </div>
+          ))} 
+        </Slide>
+      </div>
+            
             </CardBody>
         </Card>
     </Col>
