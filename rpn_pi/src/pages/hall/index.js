@@ -40,21 +40,21 @@ const Hall = () => {
     const listaSala = [ 
         {
         Id: 1,
-        Nome: 'Sala 1',
+        Nome: 'Vampiro a Máscara',
         Descricao: "O jogo utiliza a condição vampírica, imortal e amaldiçoada, como plano de fundo para explorar temas como moralidade, depravação, humanidade (ou a apreciação da condição humana em sua ausência), salvação e horror pessoal.",
         },
 
         {
         Id: 2,
-        Nome:' Sala 2',
-        Descricao: "Sala de jogo nunmero 2",
+        Nome:'Conan',
+        Descricao: "Tendo praticamente inventado o gênero de espada e magia, Conan foi uma grande influência para os referidos RPGs. Um bom mestre saberia dar o tom sombrio e brutal de suas aventuras",
         Privado: true,
         },
 
         {
         Id: 3,
-        Nome: 'Sala 3',
-        Descricao: "Sala de jogo nunmero 3",
+        Nome: 'Criminal',
+        Descricao: "Gangsters, assaltantes, trambiqueiros, gangues de rua… Hollywood nos agraciou com o tema há décadas. Meu principal interesse surgiu quando vi Jogos, Trapaças e Dois Canos Fumegantes",
         Privado: false,
         },
 
