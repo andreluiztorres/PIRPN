@@ -11,14 +11,15 @@ const termos = "Bem-vindo à RPN Games! Nossa política de privacidade explica q
 const Cadastro = () => {
     return (
         <><br />
+        <div style={{display: 'flex', justifyContent: 'center'}}><img style={{position: "absolute", marginTop: "-35px", width: '150px'}} src={LogoRPN}></img></div>
 <Card className="BarrSup" style={{background: "#4e2779", height: "60px", boxShadow: '5px 5px 5px #000', marginLeft: '-20px' }}>
     <Row>
         <Col sm="7"></Col>
         <Col sm="5">
             <div style={{marginTop: "12px", marginRight: "10px"}}>
             <Row>
-            <Col sm="10"></Col>
-            <Col sm="2"><Button type='button' color='danger'>Voltar</Button></Col>
+            <Col sm="12"></Col>
+            
             </Row>
             </div>
             </Col>
@@ -28,14 +29,15 @@ const Cadastro = () => {
     <Col sm='3'></Col>
     <Col sm='6' >
         <Card className='Card'>
-            <CardHeader style={{color: '#fff', fontWeight: 'bold', padding: '10px', marginLeft: '10px'}}><h4><strong> Cadastro: </strong></h4></CardHeader>
-            <CardBody style={{padding: '20px'}} ><br />
+            <CardHeader style={{color: '#fff', fontWeight: 'bold', padding: '10px 0px 0px 10px', marginLeft: '10px'}}><h4><strong> Cadastro: </strong></h4></CardHeader>
+            <CardBody style={{padding: '0px 20px 20px 20px'}} ><br />
             <Input className="form-control" type="text" name="nome" id="nome" placeholder="Nome" /><p/>
             <Input className="form-control" type="text" name="email" id="email" placeholder="Email" /><p/>
             <Input className="form-control" type="password" name="senha" id="senha" placeholder="Senha" /><p/>
             <Input className="form-control" type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirmar Senha" /><p/>
-            <Input className="form-control" type="textarea"placeholder={termos} style={{height: '150px'}}></Input><p/>
-            <Input type="checkbox" Label="Li e concordo com os termos"></Input><p/>
+            <Input className="form-control" readOnly='readOnly' type="textarea"value={termos} rows="10" cols="60" style={{height: '150px'}}></Input><p/>
+            <Label from="check"><span style={{color: "#fff"}}>Li e Concordo com os termos: _ </span></Label>
+            <Input type="checkbox" name="chek" id="check"></Input><p/>
             <div style={{display: "flex", justifyContent: "center"}}><Button color='danger' size='lg'>Finalizar</Button></div>
             </CardBody>
         </Card>
