@@ -26,6 +26,7 @@ import { Search, LogIn, Lock } from "react-feather";
 import Avatar from "react-avatar";
 import YouTube from "react-youtube";
 import { Slide } from "react-slideshow-image";
+import D20 from "../../assets/d20/dist/d20";
 
 const TabsBasic = () => {
   const [active, setActive] = useState("1");
@@ -451,10 +452,12 @@ const Sala = () => {
                 padding: "10px",
                 marginLeft: "10px",
               }}
-            ></CardHeader>
-            <CardBody style={{ display: "flex", justifyContent: "center" }}>
-              <br />
-            </CardBody>
+            >
+              <div>
+                <D20 />
+              </div>
+            </CardHeader>
+            
           </Card>
         </Col>
       </Row>
