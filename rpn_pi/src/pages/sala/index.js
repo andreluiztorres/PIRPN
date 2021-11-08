@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, memo, Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Card,
   Row,
@@ -15,22 +14,23 @@ import {
   TabPane,
   Nav,
   NavItem,
-  NavLink,
+  NavLink
 } from "reactstrap";
 import FotoTeste from "../../assets/images/FotoTeste.jpg";
 import LogoRPN from "../../assets/images/LogoRPN.png";
 import Ribbon from "../../assets/images/ribbonmedium.png";
+import Map from "../../assets/images/map.png";
 import Caveira from "../../assets/images/layerssmall.png";
 import DivSup from "../../assets/images/headerskull.png";
-import { Search, LogIn, Lock } from "react-feather";
 import Avatar from "react-avatar";
-import YouTube from "react-youtube";
-import { Slide } from "react-slideshow-image";
 import D20 from "../../assets/d20/dist/d20";
+import imgD20 from "../../assets/images/d20.png";
+
+
 
 const TabsBasic = () => {
   const [active, setActive] = useState("1");
-
+  
   const toggle = (tab) => {
     if (active !== tab) {
       setActive(tab);
@@ -262,9 +262,16 @@ const TabsBasic = () => {
 };
 
 const Sala = () => {
+
+  
+  const [hiddenD20, setHiddenD20] = useState(false);
+  const [hiddenMap, setHiddenMap] = useState(false);
+
+  
   return (
     <>
       <br />
+      
       <div style={{ display: "flex", justifyContent: "left" }}>
         <img
           style={{
@@ -333,8 +340,9 @@ const Sala = () => {
       <Row>
         <Col sm="12">
           <div style={{ display: "flex", justifyContent: "right" }}>
+            <span style={{position: 'absolute',marginRight: '100px', marginTop: '35px', fontWeight: 900, zIndex: 9999, display: "flex", justifyContent: "right", fontSize:'25px' }}>Lord Genesis</span>
             <img
-              style={{ position: "absolute", zIndex: 9999, marginTop: "-28px" }}
+              style={{ position: "absolute", zIndex: 9998, marginTop: "-28px" }}
               src={Ribbon}
             ></img>
           </div>
@@ -417,6 +425,7 @@ const Sala = () => {
           </Card>
         </Col>
       </Row>
+
       <Row>
         <Col sm="7">
           <Card
@@ -453,11 +462,54 @@ const Sala = () => {
                 marginLeft: "10px",
               }}
             >
-              <div>
-                <D20 />
+<div style={{visibility:  hiddenD20 !== false ? '' : 'hidden',  border: '1px solid #000', borderRadius: '25px', background: '#222',  position: 'absolute', zIndex: 9999}}>
+              <D20/><br/><Button style={{marginLeft: '65px'}}  color='danger' onClick={() => setHiddenD20(!hiddenD20)}>Fechar</Button>
               </div>
+              <div style={{visibility:  hiddenMap !== false ? '' : 'hidden',  border: '1px solid #000', borderRadius: '25px', background: '#222',  position: 'absolute', zIndex: 9999, marginLeft: '-500px'}}>
+              <Button style={{ position: 'absolute'}}  color='danger' onClick={() => setHiddenMap(!hiddenMap)}>Fechar</Button><img style={{ borderRadius: '15px'}} src={Map}></img><br/>
+              </div>
+        <img onClick={() => setHiddenD20(!hiddenD20)} style={{width: '120px', borderRadius: '15px'}} src={imgD20}></img>
+        <img onClick={() => setHiddenMap(!hiddenMap)}style={{height: '116px', borderRadius: '15px', marginLeft: '32px'}} src={Map}></img>
             </CardHeader>
-            
+          </Card>
+          <br></br>
+          <Card
+            className="Card"
+            style={{ marginTop: "30px", marginLeft: "-30px" }}
+          >
+            <CardHeader
+              style={{
+                color: "#fff",
+                fontWeight: "bold",
+                padding: "10px",
+                marginLeft: "10px",
+                marginTop: "-30px",
+              }}
+            >
+              <div
+                style={{
+                  border: "1px solid #000",
+                  borderRadius: "8px",
+                  background: "#fff",
+                  color: "#000",
+                  height: "345px",
+                  marginLeft: '-8px'
+                 
+                }}
+              >
+                <Input type='textarea' style={{height: '310px'}}></Input>
+                <Row>
+                <Col sm='10'>
+                <Input placeholder='Escreva aqui ...'></Input>
+                </Col>
+                <Col sm='2'>
+                <Button style={{width: '88px', height: '34px', marginLeft: '-28px'}} size='sm' color='danger'>Enviar</Button>
+                </Col>
+                </Row>
+               
+              </div>
+
+            </CardHeader>
           </Card>
         </Col>
       </Row>
