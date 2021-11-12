@@ -3,7 +3,13 @@
     "react-avatar": "^3.10.0"
     
   },
+  "private": true,
   "homepage": "https://andreluiztorres.github.io/PIRPN/",
-  "private": true
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+  
 }
+
 
