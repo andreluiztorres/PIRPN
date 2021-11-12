@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PIRPN/static/css/main.490cd669.chunk.css",
-    "main.js": "/PIRPN/static/js/main.06d3de4b.chunk.js",
-    "main.js.map": "/PIRPN/static/js/main.06d3de4b.chunk.js.map",
+    "main.js": "/PIRPN/static/js/main.9a62bc66.chunk.js",
+    "main.js.map": "/PIRPN/static/js/main.9a62bc66.chunk.js.map",
     "runtime-main.js": "/PIRPN/static/js/runtime-main.a27df723.js",
     "runtime-main.js.map": "/PIRPN/static/js/runtime-main.a27df723.js.map",
     "static/css/2.ddacd19b.chunk.css": "/PIRPN/static/css/2.ddacd19b.chunk.css",
@@ -26,6 +26,6 @@
     "static/css/2.ddacd19b.chunk.css",
     "static/js/2.2b0293b9.chunk.js",
     "static/css/main.490cd669.chunk.css",
-    "static/js/main.06d3de4b.chunk.js"
+    "static/js/main.9a62bc66.chunk.js"
   ]
 }
