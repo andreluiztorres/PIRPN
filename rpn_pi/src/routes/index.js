@@ -11,7 +11,7 @@ const Routes = () => {
    return (
        <BrowserRouter>
        <HashRouter>
-           <Route path='/PIRPN' exact component={Home} />
+           <Route path='/' exact component={Home} />
            <Route path='/Hall' component={Hall} />
            <Route path='/Cadastro' component={Cadastro} />
            <Route path='/Sala' component={Sala} />
