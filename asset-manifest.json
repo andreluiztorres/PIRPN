@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/PIRPN/static/css/main.490cd669.chunk.css",
+    "main.js": "/PIRPN/static/js/main.e9ac0cf8.chunk.js",
+    "main.js.map": "/PIRPN/static/js/main.e9ac0cf8.chunk.js.map",
+    "runtime-main.js": "/PIRPN/static/js/runtime-main.0e07fcef.js",
+    "runtime-main.js.map": "/PIRPN/static/js/runtime-main.0e07fcef.js.map",
+    "static/css/2.6a11f449.chunk.css": "/PIRPN/static/css/2.6a11f449.chunk.css",
+    "static/js/2.8a16d55e.chunk.js": "/PIRPN/static/js/2.8a16d55e.chunk.js",
+    "static/js/2.8a16d55e.chunk.js.map": "/PIRPN/static/js/2.8a16d55e.chunk.js.map",
+    "index.html": "/PIRPN/index.html",
+    "static/css/2.6a11f449.chunk.css.map": "/PIRPN/static/css/2.6a11f449.chunk.css.map",
+    "static/css/main.490cd669.chunk.css.map": "/PIRPN/static/css/main.490cd669.chunk.css.map",
+    "static/js/2.8a16d55e.chunk.js.LICENSE.txt": "/PIRPN/static/js/2.8a16d55e.chunk.js.LICENSE.txt",
+    "static/media/FotoTeste.74fd38f2.jpg": "/PIRPN/static/media/FotoTeste.74fd38f2.jpg",
+    "static/media/LogoRPN.afb203fe.png": "/PIRPN/static/media/LogoRPN.afb203fe.png",
+    "static/media/d20.92c667d1.png": "/PIRPN/static/media/d20.92c667d1.png",
+    "static/media/bootstrap.css": "/PIRPN/static/media/glyphicons-halflings-regular.be810be3.woff2",
+    "static/media/headerskull.11a266c5.png": "/PIRPN/static/media/headerskull.11a266c5.png",
+    "static/media/layerssmall.50049769.png": "/PIRPN/static/media/layerssmall.50049769.png",
+    "static/media/map.fa680e4a.png": "/PIRPN/static/media/map.fa680e4a.png",
+    "static/media/ribbonmedium.c607faac.png": "/PIRPN/static/media/ribbonmedium.c607faac.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e07fcef.js",
+    "static/css/2.6a11f449.chunk.css",
+    "static/js/2.8a16d55e.chunk.js",
+    "static/css/main.490cd669.chunk.css",
+    "static/js/main.e9ac0cf8.chunk.js"
+  ]
+}
