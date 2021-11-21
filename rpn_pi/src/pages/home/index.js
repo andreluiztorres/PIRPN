@@ -1,9 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable no-unused-vars */
+import  { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import {Card, Row, Col, Input, Button, CardBody, CardHeader} from 'reactstrap'
 import LogoRPN from '../../assets/images/LogoRPN.png'
+import api from "../../services/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [dadosUsr, setDadosUsr] = useState([]);
+    const history = useHistory();
+    const redireciona = () => {
+    if(password !== dadosUsr[0].senha){
+        toast("Email incorreto")
+    }else{
+        localStorage.setItem('nome', dadosUsr[0].nome);
+        localStorage.setItem('nick', dadosUsr[0].nick);
+        localStorage.setItem('id', dadosUsr[0].id);
+        localStorage.setItem('email', dadosUsr[0].email);
+        return (history.push("/Hall"));
+    }
+    }
+    
+    const ConfereDadodos = (dados) => {
+    api.get('usuario/nick/' + email)
+    .then(r => {
+        if(password !== r.data.senha){
+            toast("Email incorreto")
+        }else{
+            localStorage.setItem('nome', r.data.nome);
+            localStorage.setItem('nick', r.data.nick);
+            localStorage.setItem('id', r.data.id);
+            localStorage.setItem('email', r.data.email);
+            return (history.push("/Hall"));
+        }    
+    }).catch(e => { alert("Usuario incorreto") })
+        ;
+    }
 
     return (
         <><br />
@@ -17,16 +55,20 @@ const Home = () => {
             id="usuario"
             name="usuario"
             type="text"
+            placeholder="Nick"
+            onChange={(e) => setEmail(e.target.value)}
             >
             </Input></Col>
             <Col sm="4"><Input
             id="usuario"
             name="usuario"
             type="password"
+            placeholder="Senha"
+            onChange={(e) => setPassword(e.target.value)}
             >
             </Input></Col>
-            <Col sm="2"><Button color='danger'>Login</Button></Col>
-            <Col sm="2"><Link><div style={{textAlign: "center", fontSize: '13px', marginLeft: "-20px"}}><strong>Cadastrar Agora</strong></div></Link></Col>
+            <Col sm="2"><Button color='danger' onClick={() => ConfereDadodos(email)}>Login</Button></Col>
+            <Col sm="2"><Link onClick={() => history.push("/Cadastro")}><div style={{textAlign: "center", fontSize: '13px', marginLeft: "-20px"}}><strong>Cadastrar Agora</strong></div></Link></Col>
             </Row>
             </div>
             </Col>
