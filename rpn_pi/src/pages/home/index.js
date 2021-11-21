@@ -17,7 +17,7 @@ const Home = () => {
     const history = useHistory();
     const redireciona = () => {
     if(password !== dadosUsr[0].senha){
-        toast("Email incorreto")
+        toast.error("Nick ou Senha incorreta")
     }else{
         localStorage.setItem('nome', dadosUsr[0].nome);
         localStorage.setItem('nick', dadosUsr[0].nick);
@@ -31,7 +31,7 @@ const Home = () => {
     api.get('usuario/nick/' + email)
     .then(r => {
         if(password !== r.data.senha){
-            toast("Email incorreto")
+            toast.error("Nick ou Senha incorreta")
         }else{
             localStorage.setItem('nome', r.data.nome);
             localStorage.setItem('nick', r.data.nick);
@@ -39,12 +39,12 @@ const Home = () => {
             localStorage.setItem('email', r.data.email);
             return (history.push("/Hall"));
         }    
-    }).catch(e => { alert("Usuario incorreto") })
+    }).catch(e => {   toast.error("Nick ou Senha incorreta") })
         ;
     }
 
     return (
-        <><br />
+        <><div id="container"><ToastContainer theme="dark" /></div><br />
 <Card className="BarrSup" style={{background: "#4e2779", height: "60px", boxShadow: '5px 5px 5px #000', marginLeft: '-20px' }}>
     <Row>
         <Col sm="7"></Col>
