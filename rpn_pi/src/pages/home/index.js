@@ -6,7 +6,8 @@ import {Card, Row, Col, Input, Button, CardBody, CardHeader} from 'reactstrap'
 import LogoRPN from '../../assets/images/LogoRPN.png'
 import api from "../../services/api";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import YouTube from 'react-youtube';
+
 
 
 const Home = () => {
@@ -15,17 +16,14 @@ const Home = () => {
     const [password, setPassword] = useState('');
     const [dadosUsr, setDadosUsr] = useState([]);
     const history = useHistory();
-    const redireciona = () => {
-    if(password !== dadosUsr[0].senha){
-        toast.error("Nick ou Senha incorreta")
-    }else{
-        localStorage.setItem('nome', dadosUsr[0].nome);
-        localStorage.setItem('nick', dadosUsr[0].nick);
-        localStorage.setItem('id', dadosUsr[0].id);
-        localStorage.setItem('email', dadosUsr[0].email);
-        return (history.push("/Hall"));
-    }
-    }
+
+    const opts = {
+        width: '100%',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      }
     
     const ConfereDadodos = (dados) => {
     api.get('usuario/nick/' + email)
@@ -79,16 +77,8 @@ const Home = () => {
     <Col sm='6' >
         <Card className='Card'>
             <CardHeader style={{color: '#fff', fontWeight: 'bold', padding: '10px', marginLeft: '10px'}}><h3><strong> O que é RPN ? </strong></h3></CardHeader>
-            <CardBody style={{padding: '20px'}} ><Input
-            name='textoInicial'
-            id='textoInicial'
-            type='textarea'
-            value='A sigla RPG, oriunda da expressão em inglês “Role Playing Game”, define um estilo de jogo em que as pessoas interpretam seus personagens, criando narrativas, histórias e um enredo guiado por uma delas, que geralmente leva o nome de mestre do jogo.'
-            style={{padding: '20px', height: "200px"}}
-            disabled
-            >
-            </Input><br />
-            <div style={{display: "flex", justifyContent: "center"}}><Button color='danger' size='lg'>Jogue Agora</Button></div>
+            <CardBody style={{padding: '20px'}} ><YouTube videoId='kgRhJ5TU7xA' opts={opts}></YouTube><br />
+            <div style={{display: "flex", justifyContent: "center"}}><Button color='danger' size='lg' onClick={() => history.push("/Cadastro")}>Jogue Agora</Button></div>
             </CardBody>
         </Card>
     </Col>

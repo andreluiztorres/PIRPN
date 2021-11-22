@@ -25,6 +25,7 @@ import DivSup from "../../assets/images/headerskull.png";
 import Avatar from "react-avatar";
 import D20 from "../../assets/d20/dist/d20";
 import imgD20 from "../../assets/images/d20.png";
+import { Plus, UserPlus } from "react-feather";
 
 
 
@@ -340,7 +341,7 @@ const Sala = () => {
       <Row>
         <Col sm="12">
           <div style={{ display: "flex", justifyContent: "right" }}>
-            <span style={{position: 'absolute',marginRight: '100px', marginTop: '35px', fontWeight: 900, zIndex: 9999, display: "flex", justifyContent: "right", fontSize:'25px' }}>Lord Genesis</span>
+           <Button title="ADICIONAR PERSSONAGEM" color="danger" style={{marginTop: "15px", marginRight: '10px', boxShadow: "5px 5px 5px black" , zIndex: 9999, borderRadius: "40px", width: "40px", height: "40px"} }><UserPlus style={{marginTop: "5px"}} size="16px" /></Button><Input style={{marginTop: '35px', marginRight: '90px', zIndex: 9999, fontSize:'25px', width: '210px', height: '40px', fontFamily: "fantasy", border: "none", background: "rgba(255, 255, 255, 0.7)" }} type='select'><option style={{textAlign: "center"}}>Lord Genesis</option></Input >
             <img
               style={{ position: "absolute", zIndex: 9998, marginTop: "-28px" }}
               src={Ribbon}
@@ -348,7 +349,7 @@ const Sala = () => {
           </div>
           <Card
             className="Card"
-            style={{ marginTop: "30px", marginLeft: "20px" }}
+            style={{ marginTop: "-40px", marginLeft: "20px" }}
           >
             <CardHeader
               style={{ color: "#fff", fontWeight: "bold", padding: "10px" }}
