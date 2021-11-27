@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, memo, Fragment, useState } from "react";
@@ -14,7 +15,8 @@ import {
   TabPane,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  Container
 } from "reactstrap";
 import FotoTeste from "../../assets/images/FotoTeste.jpg";
 import LogoRPN from "../../assets/images/LogoRPN.png";
@@ -25,7 +27,8 @@ import DivSup from "../../assets/images/headerskull.png";
 import Avatar from "react-avatar";
 import D20 from "../../assets/d20/dist/d20";
 import imgD20 from "../../assets/images/d20.png";
-import { Plus, UserPlus } from "react-feather";
+import { Airplay, Plus, UserPlus } from "react-feather";
+import api from "../../services/api";
 
 
 
@@ -267,8 +270,50 @@ const Sala = () => {
   
   const [hiddenD20, setHiddenD20] = useState(false);
   const [hiddenMap, setHiddenMap] = useState(false);
-
+  const [chats, setChats] = useState([]);
+  const [textoChat, setTextoChat] = useState("");
+  const [temporizador, setTemporizador] = useState(true);
+  const [quantchats, setQuantChats] = useState(0);
   
+  const buscaMsg = () => {
+    api.get("/chat/idsala/" + localStorage.getItem('idSala')).then((response) => {
+     setQuantChats(response.data.length);
+     if (quantchats !== response.data.length) {
+      setChats(response.data);
+     }
+    });
+  };
+
+useEffect(() => {
+  buscaMsg();
+  console.log(chats);
+} , [temporizador]);
+
+setTimeout(() => {
+  setTemporizador(!temporizador);
+}, 5000);
+
+  const enviaMsg = () => {
+    const novamsg = {
+      idsala: localStorage.getItem('idSala'),
+      texto: textoChat,
+      nomepers: localStorage.getItem('NomePersonagem'),
+      idusuario: localStorage.getItem('id'),
+      datahora: null,
+    }
+  api.post('/chat/cadastrar', novamsg).then(res => {
+  console.log(res.data)
+  setTextoChat("");
+  })}
+
+  const imprimeMsg = 
+    chats.map((chat) => {
+      return (
+      <><span key={chat._id}>{chat.nomepers}: {chat.texto}</span><br /><br /></>
+      )
+    })
+  
+
   return (
     <>
       <br />
@@ -297,8 +342,9 @@ const Sala = () => {
           <Avatar
             size="90"
             round={true}
+            style={{boxShadow: "5px 5px 5px black"}}
             facebook-id="invalidfacebookusername"
-            src={FotoTeste}
+            src="https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cindra/imagens/sem.jpg.gif/image"
           />
         </div>
         <Row>
@@ -316,7 +362,7 @@ const Sala = () => {
                 <Col>
                   <h5>
                     <div style={{ display: "flex", justifyContent: "end" }}>
-                      <strong>André Luiz Torres</strong>
+                      <strong>{localStorage.getItem('nome')}</strong>
                     </div>
                   </h5>
                 </Col>
@@ -328,7 +374,7 @@ const Sala = () => {
                       marginTop: "-13px",
                     }}
                   >
-                    <h6>andre.torres.ti@gmail.com</h6>
+                    <h6>{localStorage.getItem('email')}</h6>
                   </div>
                 </Col>
               </Col>
@@ -341,7 +387,7 @@ const Sala = () => {
       <Row>
         <Col sm="12">
           <div style={{ display: "flex", justifyContent: "right" }}>
-           <Button title="ADICIONAR PERSSONAGEM" color="danger" style={{marginTop: "15px", marginRight: '10px', boxShadow: "5px 5px 5px black" , zIndex: 9999, borderRadius: "40px", width: "40px", height: "40px"} }><UserPlus style={{marginTop: "5px"}} size="16px" /></Button><Input style={{marginTop: '35px', marginRight: '90px', zIndex: 9999, fontSize:'25px', width: '210px', height: '40px', fontFamily: "fantasy", border: "none", background: "rgba(255, 255, 255, 0.7)" }} type='select'><option style={{textAlign: "center"}}>Lord Genesis</option></Input >
+           <Button title="ADICIONAR PERSSONAGEM" color="danger" style={{marginTop: "15px", marginRight: '10px', boxShadow: "5px 5px 5px black" , zIndex: 9999, borderRadius: "40px", width: "40px", height: "40px"} }><UserPlus style={{marginTop: "5px"}} size="16px" /></Button><Input onChange={(e) => localStorage.setItem("NomePersonagem", e.target.value)} style={{marginTop: '35px', marginRight: '90px', zIndex: 9999, fontSize:'25px', width: '210px', height: '40px', fontFamily: "fantasy", border: "none", background: "rgba(255, 255, 255, 0.7)" }} type='select'><option value="Lord Genesis" style={{textAlign: "center"}} >Lord Genesis</option><option value='VoldMort' style={{textAlign: "center"}} >VoldMort</option></Input >
             <img
               style={{ position: "absolute", zIndex: 9998, marginTop: "-28px" }}
               src={Ribbon}
@@ -498,13 +544,13 @@ const Sala = () => {
                  
                 }}
               >
-                <Input type='textarea' style={{height: '310px'}}></Input>
+                <Container style={{height: '310px'}}>{imprimeMsg}</Container>
                 <Row>
                 <Col sm='10'>
-                <Input placeholder='Escreva aqui ...'></Input>
+                <Input value={textoChat} placeholder='Escreva aqui ...' onChange={(e) => setTextoChat(e.target.value)}></Input>
                 </Col>
                 <Col sm='2'>
-                <Button style={{width: '88px', height: '34px', marginLeft: '-28px'}} size='sm' color='danger'>Enviar</Button>
+                <Button style={{width: '88px', height: '34px', marginLeft: '-28px'}} size='sm' color='danger' onClick={() => enviaMsg()}>Enviar</Button>
                 </Col>
                 </Row>
                

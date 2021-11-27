@@ -180,6 +180,7 @@ const Hall = () => {
           <Avatar
             size="90"
             round={true}
+            style={{boxShadow: "5px 5px 5px black"}}
             facebook-id="invalidfacebookusername"
             src={
               "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cindra/imagens/sem.jpg.gif/image"
