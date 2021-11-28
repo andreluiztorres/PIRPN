@@ -225,7 +225,7 @@ const Hall = () => {
       </Card>
       <Row>
         <Col sm="4">
-          <Card className="Card" style={{ marginLeft: "30px" }}>
+          <Card className="Card" style={{ marginLeft: "30px"}}>
             <CardHeader
               style={{ color: "#fff", fontWeight: "bold", padding: "10px" }}
             >
@@ -266,10 +266,12 @@ const Hall = () => {
                     color="danger"
                     style={{ height: 70 }}
                     onClick={criaSala}
+                    block
                   >
                     Criar Sala
                   </Button>
                 </Col>
+                <Col sm="12"></Col>
               </Row>
             </CardHeader>
 

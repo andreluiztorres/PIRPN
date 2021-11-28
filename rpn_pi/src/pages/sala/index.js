@@ -544,13 +544,13 @@ setTimeout(() => {
                  
                 }}
               >
-                <Container style={{height: '310px'}}>{imprimeMsg}</Container>
+                <div style={{height: '289px', overflowX: "auto", padding: "15px", whiteSpace: 'normal'}}>{imprimeMsg}</div>
                 <Row>
                 <Col sm='10'>
-                <Input value={textoChat} placeholder='Escreva aqui ...' onChange={(e) => setTextoChat(e.target.value)}></Input>
+                <Input type="textarea" value={textoChat} placeholder='Escreva aqui ...' onChange={(e) => setTextoChat(e.target.value)}></Input>
                 </Col>
                 <Col sm='2'>
-                <Button style={{width: '88px', height: '34px', marginLeft: '-28px'}} size='sm' color='danger' onClick={() => enviaMsg()}>Enviar</Button>
+                <Button block style={{height: '53px', marginLeft: '-28px'}} size='sm' color='danger' onClick={() => enviaMsg()}>Enviar</Button>
                 </Col>
                 </Row>
                
