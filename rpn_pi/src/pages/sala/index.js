@@ -16,7 +16,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Container
+  Container,
 } from "reactstrap";
 import FotoTeste from "../../assets/images/FotoTeste.jpg";
 import LogoRPN from "../../assets/images/LogoRPN.png";
@@ -25,16 +25,14 @@ import Map from "../../assets/images/map.png";
 import Caveira from "../../assets/images/layerssmall.png";
 import DivSup from "../../assets/images/headerskull.png";
 import Avatar from "react-avatar";
-import D20 from "../../assets/d20/dist/d20";
+import DadoD20 from "../../assets/d20";
 import imgD20 from "../../assets/images/d20.png";
 import { Airplay, Plus, UserPlus } from "react-feather";
 import api from "../../services/api";
 
-
-
 const TabsBasic = () => {
   const [active, setActive] = useState("1");
-  
+
   const toggle = (tab) => {
     if (active !== tab) {
       setActive(tab);
@@ -266,58 +264,79 @@ const TabsBasic = () => {
 };
 
 const Sala = () => {
-
-  
   const [hiddenD20, setHiddenD20] = useState(false);
   const [hiddenMap, setHiddenMap] = useState(false);
   const [chats, setChats] = useState([]);
   const [textoChat, setTextoChat] = useState("");
   const [temporizador, setTemporizador] = useState(true);
   const [quantchats, setQuantChats] = useState(0);
-  
+  const [valorD20, setValorD20] = useState(Math.floor(Math.random() * 20) + 1);
+
   const buscaMsg = () => {
-    api.get("/chat/idsala/" + localStorage.getItem('idSala')).then((response) => {
-     setQuantChats(response.data.length);
-     if (quantchats !== response.data.length) {
-      setChats(response.data);
-     }
-    });
+    api
+      .get("/chat/idsala/" + localStorage.getItem("idSala"))
+      .then((response) => {
+        setQuantChats(response.data.length);
+        if (quantchats !== response.data.length) {
+          setChats(response.data);
+        }
+      });
   };
 
-useEffect(() => {
-  buscaMsg();
-  console.log(chats);
-} , [temporizador]);
+  useEffect(() => {
+    buscaMsg();
+    console.log(chats);
+  }, [temporizador]);
 
-setTimeout(() => {
-  setTemporizador(!temporizador);
-}, 5000);
+  setTimeout(() => {
+    setTemporizador(!temporizador);
+  }, 5000);
 
   const enviaMsg = () => {
     const novamsg = {
-      idsala: localStorage.getItem('idSala'),
+      idsala: localStorage.getItem("idSala"),
       texto: textoChat,
-      nomepers: localStorage.getItem('NomePersonagem'),
-      idusuario: localStorage.getItem('id'),
+      nomepers: localStorage.getItem("NomePersonagem"),
+      idusuario: localStorage.getItem("id"),
       datahora: null,
-    }
-  api.post('/chat/cadastrar', novamsg).then(res => {
-  console.log(res.data)
-  setTextoChat("");
-  })}
+    };
+    api.post("/chat/cadastrar", novamsg).then((res) => {
+      console.log(res.data);
+      setTextoChat("");
+    });
+  };
 
-  const imprimeMsg = 
-    chats.map((chat) => {
-      return (
-      <><span key={chat._id}>{chat.nomepers}: {chat.texto}</span><br /><br /></>
-      )
-    })
-  
+  const enviaMsgDado = () => {
+    const novamsg = {
+      idsala: localStorage.getItem("idSala"),
+      texto: "Resultado rolagem de dado: " + valorD20,
+      nomepers: localStorage.getItem("NomePersonagem"),
+      idusuario: localStorage.getItem("id"),
+      datahora: null,
+    };
+    api.post("/chat/cadastrar", novamsg).then((res) => {
+      console.log(res.data);
+      setTextoChat("");
+    });
+  };
+
+
+  const imprimeMsg = chats.map((chat) => {
+    return (
+      <>
+        <span key={chat._id}>
+          {chat.nomepers}: {chat.texto}
+        </span>
+        <br />
+        <br />
+      </>
+    );
+  });
 
   return (
     <>
       <br />
-      
+
       <div style={{ display: "flex", justifyContent: "left" }}>
         <img
           style={{
@@ -342,7 +361,7 @@ setTimeout(() => {
           <Avatar
             size="90"
             round={true}
-            style={{boxShadow: "5px 5px 5px black"}}
+            style={{ boxShadow: "5px 5px 5px black" }}
             facebook-id="invalidfacebookusername"
             src="https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cindra/imagens/sem.jpg.gif/image"
           />
@@ -362,7 +381,7 @@ setTimeout(() => {
                 <Col>
                   <h5>
                     <div style={{ display: "flex", justifyContent: "end" }}>
-                      <strong>{localStorage.getItem('nome')}</strong>
+                      <strong>{localStorage.getItem("nome")}</strong>
                     </div>
                   </h5>
                 </Col>
@@ -374,7 +393,7 @@ setTimeout(() => {
                       marginTop: "-13px",
                     }}
                   >
-                    <h6>{localStorage.getItem('email')}</h6>
+                    <h6>{localStorage.getItem("email")}</h6>
                   </div>
                 </Col>
               </Col>
@@ -387,7 +406,45 @@ setTimeout(() => {
       <Row>
         <Col sm="12">
           <div style={{ display: "flex", justifyContent: "right" }}>
-           <Button title="ADICIONAR PERSSONAGEM" color="danger" style={{marginTop: "15px", marginRight: '10px', boxShadow: "5px 5px 5px black" , zIndex: 9999, borderRadius: "40px", width: "40px", height: "40px"} }><UserPlus style={{marginTop: "5px"}} size="16px" /></Button><Input onChange={(e) => localStorage.setItem("NomePersonagem", e.target.value)} style={{marginTop: '35px', marginRight: '90px', zIndex: 9999, fontSize:'25px', width: '210px', height: '40px', fontFamily: "fantasy", border: "none", background: "rgba(255, 255, 255, 0.7)" }} type='select'><option value="Lord Genesis" style={{textAlign: "center"}} >Lord Genesis</option><option value='VoldMort' style={{textAlign: "center"}} >VoldMort</option></Input >
+            <Button
+              title="ADICIONAR PERSSONAGEM"
+              color="danger"
+              style={{
+                marginTop: "15px",
+                marginRight: "10px",
+                boxShadow: "5px 5px 5px black",
+                zIndex: 9999,
+                borderRadius: "40px",
+                width: "40px",
+                height: "40px",
+              }}
+            >
+              <UserPlus style={{ marginTop: "5px" }} size="16px" />
+            </Button>
+            <Input
+              onChange={(e) =>
+                localStorage.setItem("NomePersonagem", e.target.value)
+              }
+              style={{
+                marginTop: "35px",
+                marginRight: "90px",
+                zIndex: 9999,
+                fontSize: "25px",
+                width: "210px",
+                height: "40px",
+                fontFamily: "fantasy",
+                border: "none",
+                background: "rgba(255, 255, 255, 0.7)",
+              }}
+              type="select"
+            >
+              <option value="Lord Genesis" style={{ textAlign: "center" }}>
+                Lord Genesis
+              </option>
+              <option value="VoldMort" style={{ textAlign: "center" }}>
+                VoldMort
+              </option>
+            </Input>
             <img
               style={{ position: "absolute", zIndex: 9998, marginTop: "-28px" }}
               src={Ribbon}
@@ -509,14 +566,65 @@ setTimeout(() => {
                 marginLeft: "10px",
               }}
             >
-<div style={{visibility:  hiddenD20 !== false ? '' : 'hidden',  border: '1px solid #000', borderRadius: '25px', background: '#222',  position: 'absolute', zIndex: 9999}}>
-              <D20/><br/><Button style={{marginLeft: '65px'}}  color='danger' onClick={() => setHiddenD20(!hiddenD20)}>Fechar</Button>
+              <div
+                style={{
+                  visibility: hiddenD20 !== false ? "" : "hidden",
+                  border: "1px solid #000",
+                  borderRadius: "25px",
+                  background: "#222",
+                  position: "absolute",
+                  zIndex: 9999,
+                }}
+              >
+                <DadoD20 valor={valorD20} />
+                <br />
+                <Button
+                  style={{ marginLeft: "65px" }}
+                  color="danger"
+                  onClick={() => {
+                    setHiddenD20(!hiddenD20)
+                    setValorD20(Math.floor(Math.random() * 20) + 1)
+                    enviaMsgDado(valorD20)
+                  }}
+                >
+                  Fechar
+                </Button>
               </div>
-              <div style={{visibility:  hiddenMap !== false ? '' : 'hidden',  border: '1px solid #000', borderRadius: '25px', background: '#222',  position: 'absolute', zIndex: 9999, marginLeft: '-500px'}}>
-              <Button style={{ position: 'absolute'}}  color='danger' onClick={() => setHiddenMap(!hiddenMap)}>Fechar</Button><img style={{ borderRadius: '15px'}} src={Map}></img><br/>
+              <div
+                style={{
+                  visibility: hiddenMap !== false ? "" : "hidden",
+                  border: "1px solid #000",
+                  borderRadius: "25px",
+                  background: "#222",
+                  position: "absolute",
+                  zIndex: 9999,
+                  marginLeft: "-500px",
+                }}
+              >
+                <Button
+                  style={{ position: "absolute" }}
+                  color="danger"
+                  onClick={() => setHiddenMap(!hiddenMap)}
+                >
+                  Fechar
+                </Button>
+                <img style={{ borderRadius: "15px" }} src={Map}></img>
+                <br />
               </div>
-        <img onClick={() => setHiddenD20(!hiddenD20)} style={{width: '120px', borderRadius: '15px'}} src={imgD20}></img>
-        <img onClick={() => setHiddenMap(!hiddenMap)}style={{height: '116px', borderRadius: '15px', marginLeft: '32px'}} src={Map}></img>
+              <img
+                onClick={() => setHiddenD20(!hiddenD20)}
+                style={{ width: "120px", borderRadius: "15px" }}
+                src={imgD20}
+              ></img>
+              <img
+                onClick={() => setHiddenMap(!hiddenMap)}
+                style={{
+                  height: "116px",
+                  borderRadius: "15px",
+                  marginLeft: "32px",
+                }}
+                src={Map}
+              ></img>
             </CardHeader>
           </Card>
           <br></br>
@@ -540,22 +648,50 @@ setTimeout(() => {
                   background: "#fff",
                   color: "#000",
                   height: "345px",
-                  marginLeft: '-8px'
-                 
+                  marginLeft: "-8px",
                 }}
               >
-                <div style={{height: '289px', overflowX: "auto", padding: "15px", whiteSpace: 'normal'}}>{imprimeMsg}</div>
+                <div
+                  style={{
+                    height: "289px",
+                    padding: "15px",
+                    whiteSpace: "normal",
+                    transformOrigin: '50% 50%', 
+                    transform: 'rotate(180deg)',
+                    overflowY: 'auto',
+                    direction: 'rtl',
+                    textAlign: 'left',
+                  }}
+                >
+                 <div style={{  
+                   marginTop: '20px',
+                   float: 'left',
+                   width: '100%', 
+                   transform: 'rotate(180deg)' }}>{imprimeMsg}</div>
+                </div>
                 <Row>
-                <Col sm='10'>
-                <Input type="textarea" value={textoChat} placeholder='Escreva aqui ...' onChange={(e) => setTextoChat(e.target.value)}></Input>
-                </Col>
-                <Col sm='2'>
-                <Button block style={{height: '53px', marginLeft: '-28px'}} size='sm' color='danger' onClick={() => enviaMsg()}>Enviar</Button>
-                </Col>
+                  <Col sm="10">
+                    <Input
+                      type="textarea"
+                      value={textoChat}
+                      placeholder="Escreva aqui ..."
+                      onChange={(e) => setTextoChat(e.target.value)}
+                    ></Input>
+                  </Col>
+                  <Col sm="2">
+                    <Button
+                      disabled={textoChat === "" ? true : false}
+                      block
+                      style={{ height: "53px", marginLeft: "-28px" }}
+                      size="sm"
+                      color="danger"
+                      onClick={() => enviaMsg()}
+                    >
+                      Enviar
+                    </Button>
+                  </Col>
                 </Row>
-               
               </div>
-
             </CardHeader>
           </Card>
         </Col>
