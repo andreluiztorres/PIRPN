@@ -172,7 +172,7 @@ const TabsBasic = () => {
                     marginLeft: "55px",
                   }}
                 />
-                <img style={{ width: "150px" }} src={Caveira}></img>
+                <img style={{ width: "150px" }} src={}></img>
               </Col>
             </Row>
           </div>{" "}
