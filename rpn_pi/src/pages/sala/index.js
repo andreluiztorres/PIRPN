@@ -29,6 +29,8 @@ import DadoD20 from "../../assets/d20";
 import imgD20 from "../../assets/images/d20.png";
 import { Airplay, Plus, UserPlus } from "react-feather";
 import api from "../../services/api";
+import inputPersonagens from "../../utils/Inputs/personagens";
+
 
 const TabsBasic = () => {
   const [active, setActive] = useState("1");
@@ -271,6 +273,8 @@ const Sala = () => {
   const [temporizador, setTemporizador] = useState(true);
   const [quantchats, setQuantChats] = useState(0);
   const [valorD20, setValorD20] = useState(Math.floor(Math.random() * 20) + 1);
+  const [cardCadastro, setCardCadastro] = useState(false);
+  const [nomePerssonagemDigitado, setNomePerssonagemDigitado] = useState("");
 
   const buscaMsg = () => {
     api
@@ -332,6 +336,29 @@ const Sala = () => {
       </>
     );
   });
+
+  const cadastraPerssonagem = () => {
+    var body = {
+      "iduser": localStorage.getItem("id"),
+      "nome": nomePerssonagemDigitado,
+      "classenivel": "",
+      "antecedente": "",
+      "raca": "",
+      "pontosxp": 1,
+      "pontosatributo": 25,
+      "forca": 0,
+      "destreza": 0,
+      "constituicao": 0,
+      "inteligencia": 0,
+      "sabedoria": 0,
+      "carisma": 0
+    };
+
+  api.post('personagem/cadastrar', body).then((res) => {
+    console.log(res.data);
+    setCardCadastro(false);
+  });
+  }
 
   return (
     <>
@@ -409,6 +436,7 @@ const Sala = () => {
             <Button
               title="ADICIONAR PERSSONAGEM"
               color="danger"
+              onClick={() => setCardCadastro(!cardCadastro)}
               style={{
                 marginTop: "15px",
                 marginRight: "10px",
@@ -421,13 +449,15 @@ const Sala = () => {
             >
               <UserPlus style={{ marginTop: "5px" }} size="16px" />
             </Button>
-            <div style={{zIndex: 9999}}><Card style={{background: "#222", width: "250px", height: "110px", border: "1px solid", borderRadius: "15px", position: "absolute"}}>
+            <div style={{display: cardCadastro === true ? 'flex': 'none', zIndex: 9999}}><Card style={{background: "green", width: "250px", height: "110px", border: "2px solid #000", borderRadius: "15px", position: "absolute"}}>
               <Row>
               <Col sm="12">
               <Input 
               type="text"
               name="nomePerssonagem"
               id="nomePerssonagem"
+              placeholder="Nome da perssonagem..."
+              onChange={(e) => setNomePerssonagemDigitado(e.target.value)}
               style={{width: "90%", height: "30px", marginTop: "15px", marginLeft: "10px", borderRadius: "10px", border: "1px solid"}}
               />
                 </Col>
@@ -435,7 +465,7 @@ const Sala = () => {
               <Row>
                 <Col sm="12">
                 <div style={{marginTop: '15px', display: 'flex', justifyContent: "center", zIndex: 9999}}>
-                  <Button>Cadastrar</Button> <Button style={{marginLeft: '15px'}}>Cancelar</Button>
+                  <Button onClick={() => cadastraPerssonagem()}  color='danger'>Cadastrar</Button> <Button onClick={() => setCardCadastro(!cardCadastro)} color='danger' style={{marginLeft: '15px'}}>Cancelar</Button>
                 </div>
                 </Col>
               </Row>
@@ -447,7 +477,7 @@ const Sala = () => {
               style={{
                 marginTop: "35px",
                 marginRight: "90px",
-                zIndex: 9995,
+                zIndex: 9998,
                 fontSize: "25px",
                 width: "210px",
                 height: "40px",
@@ -457,15 +487,10 @@ const Sala = () => {
               }}
               type="select"
             >
-              <option value="Lord Genesis" style={{ textAlign: "center" }}>
-                Lord Genesis
-              </option>
-              <option value="VoldMort" style={{ textAlign: "center" }}>
-                VoldMort
-              </option>
+              <inputPersonagens></inputPersonagens>
             </Input>
             <img
-              style={{ position: "absolute", zIndex: 9998, marginTop: "-28px" }}
+              style={{ position: "absolute", zIndex: 9996, marginTop: "-28px" }}
               src={Ribbon}
             ></img>
           </div>
