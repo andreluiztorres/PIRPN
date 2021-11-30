@@ -24,9 +24,11 @@ import Ribbon from "../../assets/images/ribbonmedium.png";
 import Map from "../../assets/images/map.png";
 import Caveira from "../../assets/images/layerssmall.png";
 import DivSup from "../../assets/images/headerskull.png";
+import Headerskull from "../../assets/images/Skullheader.png";
 import Avatar from "react-avatar";
 import DadoD20 from "../../assets/d20";
 import imgD20 from "../../assets/images/d20.png";
+import pericias from "../../assets/images/pericias.png";
 import { Airplay, Plus, UserPlus } from "react-feather";
 import api from "../../services/api";
 
@@ -113,7 +115,7 @@ const TabsBasic = () => {
                 <Input
                   type="text"
                   style={{
-                    fontSize: "30px",
+                    fontSize: "15px",
                     width: "40px",
                     border: "none",
                     borderRadius: "50px",
@@ -138,7 +140,7 @@ const TabsBasic = () => {
                 <Input
                   type="text"
                   style={{
-                    fontSize: "30px",
+                    fontSize: "15px",
                     width: "40px",
                     border: "none",
                     borderRadius: "50px",
@@ -163,7 +165,7 @@ const TabsBasic = () => {
                 <Input
                   type="text"
                   style={{
-                    fontSize: "30px",
+                    fontSize: "15px",
                     width: "40px",
                     border: "none",
                     borderRadius: "50px",
@@ -192,7 +194,7 @@ const TabsBasic = () => {
                 <Input
                   type="text"
                   style={{
-                    fontSize: "30px",
+                    fontSize: "15px",
                     width: "40px",
                     border: "none",
                     borderRadius: "50px",
@@ -217,7 +219,7 @@ const TabsBasic = () => {
                 <Input
                   type="text"
                   style={{
-                    fontSize: "30px",
+                    fontSize: "15px",
                     width: "40px",
                     border: "none",
                     borderRadius: "50px",
@@ -242,7 +244,7 @@ const TabsBasic = () => {
                 <Input
                   type="text"
                   style={{
-                    fontSize: "30px",
+                    fontSize: "15px",
                     width: "40px",
                     border: "none",
                     borderRadius: "50px",
@@ -256,7 +258,328 @@ const TabsBasic = () => {
             </Row>
           </div>
         </TabPane>
-        <TabPane tabId="2"></TabPane>
+        <TabPane tabId="2">
+        <div style={{ overflowY: "auto", height: "445px" }}>
+          <div style={{ display: "flex", justifyContent: "center",marginTop:"15px"}}>
+            <Row>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "40px",
+                    marginTop: "128px",
+                  }}
+                >
+                  ACROBRACIA
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "42px",
+                    marginTop: "128px",
+                  }}
+                >
+                  ARCANISMO
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "45px",
+                    marginTop: "128px",
+                  }}
+                >
+                  ATLETISMO
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+            </Row>
+          </div>{" "}
+          <div style={{ display: "flex", justifyContent: "center", marginTop:"25px",}}>
+            <Row>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "49px",
+                    marginTop: "130px",
+                  }}
+                >
+                  ATUAÇÃO
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "53px",
+                    marginTop: "132px",
+                  }}
+                >
+                  BLEFAR
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "40px",
+                    marginTop: "128px",
+                  }}
+                >
+                  FURTIVIDADE
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+            </Row>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center",marginTop:"15px"}}>
+            <Row>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "40px",
+                    marginTop: "128px",
+                  }}
+                >
+                  ACROBRACIA
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "42px",
+                    marginTop: "128px",
+                  }}
+                >
+                  ARCANISMO
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "45px",
+                    marginTop: "128px",
+                  }}
+                >
+                  ATLETISMO
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+            </Row>
+          </div>{" "}
+          <div style={{ display: "flex", justifyContent: "center", marginTop:"25px",}}>
+            <Row>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "49px",
+                    marginTop: "130px",
+                  }}
+                >
+                  ATUAÇÃO
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "53px",
+                    marginTop: "132px",
+                  }}
+                >
+                  BLEFAR
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+              <Col sm="4">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    position: "absolute",
+                    marginLeft: "40px",
+                    marginTop: "128px",
+                  }}
+                >
+                  FURTIVIDADE
+                </span>
+                <Input
+                  type="text"
+                  style={{
+                    fontSize: "15px",
+                    width: "40px",
+                    border: "none",
+                    borderRadius: "50px",
+                    position: "absolute",
+                    marginTop: "40px",
+                    marginLeft: "53px",
+                  }}
+                />
+                <img style={{ width: "160px" }} src={pericias}></img>
+              </Col>
+            </Row>
+          </div>
+
+        </div>
+        </TabPane>
         <TabPane tabId="3"></TabPane>
       </TabContent>
     </>
