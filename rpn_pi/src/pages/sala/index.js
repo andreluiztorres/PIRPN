@@ -598,6 +598,8 @@ const Sala = () => {
   const [valorD20, setValorD20] = useState(Math.floor(Math.random() * 20) + 1);
   const [cardCadastro, setCardCadastro] = useState(false);
   const [nomePerssonagemDigitado, setNomePerssonagemDigitado] = useState("");
+  const [personagens, setPersonagens] = useState([]);
+  
 
   const buscaMsg = () => {
     api
@@ -682,6 +684,22 @@ const Sala = () => {
     setCardCadastro(false);
   });
   }
+
+  
+   useEffect(() => {
+    var usuario = localStorage.getItem("id");
+    api
+      .get("personagem/iduser/" + usuario)
+      .then((response) => setPersonagens(response.data));
+
+   }, [])
+
+   const listaPersonagens = personagens.map((r) => (
+    <option key={r.id} value={r.id}>
+      {r.nome}
+    </option>
+  ));
+    
 
   return (
     <>
@@ -805,12 +823,13 @@ const Sala = () => {
                 width: "210px",
                 height: "40px",
                 fontFamily: "fantasy",
+                textAlign: "center",
                 border: "none",
                 background: "rgba(255, 255, 255, 0.7)",
               }}
               type="select"
             >
-              <inputPersonagens></inputPersonagens>
+             {listaPersonagens}
             </Input>
             <img
               style={{ position: "absolute", zIndex: 9996, marginTop: "-28px" }}
