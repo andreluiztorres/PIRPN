@@ -421,7 +421,25 @@ const Sala = () => {
             >
               <UserPlus style={{ marginTop: "5px" }} size="16px" />
             </Button>
-            <div style={{zIndex: 9999}}><Card style={{background: "#222", width: "250px", height: "110px", border: "1px solid", borderRadius: "15px", position: "absolute"}}>oi</Card></div>
+            <div style={{zIndex: 9999}}><Card style={{background: "#222", width: "250px", height: "110px", border: "1px solid", borderRadius: "15px", position: "absolute"}}>
+              <Row>
+              <Col sm="12">
+              <Input 
+              type="text"
+              name="nomePerssonagem"
+              id="nomePerssonagem"
+              style={{width: "90%", height: "30px", marginTop: "15px", marginLeft: "10px", borderRadius: "10px", border: "1px solid"}}
+              />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm="12">
+                <div style={{marginTop: '15px', display: 'flex', justifyContent: "center", zIndex: 9999}}>
+                  <Button>Cadastrar</Button> <Button style={{marginLeft: '15px'}}>Cancelar</Button>
+                </div>
+                </Col>
+              </Row>
+              </Card></div>
             <Input
               onChange={(e) =>
                 localStorage.setItem("NomePersonagem", e.target.value)
@@ -429,7 +447,7 @@ const Sala = () => {
               style={{
                 marginTop: "35px",
                 marginRight: "90px",
-                zIndex: 9998,
+                zIndex: 9995,
                 fontSize: "25px",
                 width: "210px",
                 height: "40px",
