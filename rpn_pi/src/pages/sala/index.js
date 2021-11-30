@@ -428,11 +428,11 @@ const TabsBasic = () => {
                   style={{
                     fontSize: "10px",
                     position: "absolute",
-                    marginLeft: "40px",
-                    marginTop: "128px",
+                    marginLeft: "50px",
+                    marginTop: "130px",
                   }}
                 >
-                  ACROBRACIA
+                  HISTÓRIA
                 </span>
                 <Input
                   type="text"
@@ -457,7 +457,7 @@ const TabsBasic = () => {
                     marginTop: "128px",
                   }}
                 >
-                  ARCANISMO
+                  INTIMIDAÇÃO
                 </span>
                 <Input
                   type="text"
@@ -478,11 +478,11 @@ const TabsBasic = () => {
                   style={{
                     fontSize: "10px",
                     position: "absolute",
-                    marginLeft: "45px",
-                    marginTop: "128px",
+                    marginLeft: "50px",
+                    marginTop: "130px",
                   }}
                 >
-                  ATLETISMO
+                  INTUIÇÃO
                 </span>
                 <Input
                   type="text"
@@ -507,11 +507,11 @@ const TabsBasic = () => {
                   style={{
                     fontSize: "10px",
                     position: "absolute",
-                    marginLeft: "49px",
-                    marginTop: "130px",
+                    marginLeft: "37px",
+                    marginTop: "127px",
                   }}
                 >
-                  ATUAÇÃO
+                  INVESTIGAÇÃO
                 </span>
                 <Input
                   type="text"
@@ -532,11 +532,11 @@ const TabsBasic = () => {
                   style={{
                     fontSize: "10px",
                     position: "absolute",
-                    marginLeft: "53px",
+                    marginLeft: "30px",
                     marginTop: "132px",
                   }}
                 >
-                  BLEFAR
+                  LIDAR C.ANIMAIS
                 </span>
                 <Input
                   type="text"
@@ -557,11 +557,11 @@ const TabsBasic = () => {
                   style={{
                     fontSize: "10px",
                     position: "absolute",
-                    marginLeft: "40px",
+                    marginLeft: "50px",
                     marginTop: "128px",
                   }}
                 >
-                  FURTIVIDADE
+                  MEDICINA
                 </span>
                 <Input
                   type="text"
