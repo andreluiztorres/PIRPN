@@ -36,10 +36,10 @@ import Avatar from "react-avatar";
 import DadoD20 from "../../assets/d20";
 import imgD20 from "../../assets/images/d20.png";
 import pericias from "../../assets/images/pericias.png";
-import { Airplay, Plus, UserPlus } from "react-feather";
+import { Airplay, Plus, UserPlus, LogOut } from "react-feather";
 import api from "../../services/api";
 import inputPersonagens from "../../utils/Inputs/personagens";
-
+import { Link, useHistory } from "react-router-dom";
 
 const TabsBasic = () => {
   const [active, setActive] = useState("1");
@@ -268,489 +268,527 @@ const TabsBasic = () => {
           </div>
         </TabPane>
         <TabPane tabId="2">
-        <div style={{ overflowY: "auto", height: "445px" }}>
-          <div style={{ display: "flex", justifyContent: "center",marginTop:"15px"}}>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "44px",
-                    marginTop: "137px",
-                  }}
-                >
-                  ACROBRACIA
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "48px",
-                    marginTop: "135px",
-                  }}
-                >
-                  ARCANISMO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "50px",
-                    marginTop: "137px",
-                  }}
-                >
-                  ATLETISMO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-            </Row>
-          </div>{" "}
-          <div style={{ display: "flex", justifyContent: "center", marginTop:"25px",}}>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "53px",
-                    marginTop: "137px",
-                  }}
-                >
-                  ATUAÇÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "58px",
-                    marginTop: "138px",
-                  }}
-                >
-                  BLEFAR
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "45px",
-                    marginTop: "137px",
-                  }}
-                >
-                  FURTIVIDADE
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-            </Row>
+          <div style={{ overflowY: "auto", height: "445px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "15px",
+              }}
+            >
+              <Row>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "44px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    ACROBRACIA
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "48px",
+                      marginTop: "135px",
+                    }}
+                  >
+                    ARCANISMO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "50px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    ATLETISMO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+              </Row>
+            </div>{" "}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "25px",
+              }}
+            >
+              <Row>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "53px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    ATUAÇÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "58px",
+                      marginTop: "138px",
+                    }}
+                  >
+                    BLEFAR
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "45px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    FURTIVIDADE
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+              </Row>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "15px",
+              }}
+            >
+              <Row>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "54px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    HISTÓRIA
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "45px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    INTIMIDAÇÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "55px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    INTUIÇÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+              </Row>
+            </div>{" "}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "25px",
+              }}
+            >
+              <Row>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "40px",
+                      marginTop: "136px",
+                    }}
+                  >
+                    INVESTIGAÇÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "35px",
+                      marginTop: "135px",
+                    }}
+                  >
+                    LIDAR C.ANIMAIS
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "53px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    MEDICINA
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+              </Row>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "25px",
+              }}
+            >
+              <Row>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "50px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    NATUREZA
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "47px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    PERCEPÇÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "47px",
+                      marginTop: "137px",
+                    }}
+                  >
+                    PERSUASÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+              </Row>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "25px",
+              }}
+            >
+              <Row>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "33px",
+                      marginTop: "135px",
+                    }}
+                  >
+                    PRESTIDIGITAÇÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "53px",
+                      marginTop: "138px",
+                    }}
+                  >
+                    RELIGIÃO
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+                <Col sm="4">
+                  <span
+                    style={{
+                      fontSize: "10px",
+                      position: "absolute",
+                      marginLeft: "35px",
+                      marginTop: "135px",
+                    }}
+                  >
+                    SOBREVIVÊNCIA
+                  </span>
+                  <Input
+                    type="text"
+                    style={{
+                      fontSize: "15px",
+                      width: "40px",
+                      border: "none",
+                      borderRadius: "50px",
+                      position: "absolute",
+                      marginTop: "40px",
+                      marginLeft: "53px",
+                    }}
+                  />
+                  <img style={{ width: "170px" }} src={pericias}></img>
+                </Col>
+              </Row>
+            </div>
           </div>
-
-          <div style={{ display: "flex", justifyContent: "center",marginTop:"15px"}}>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "54px",
-                    marginTop: "137px",
-                  }}
-                >
-                  HISTÓRIA
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "45px",
-                    marginTop: "137px",
-                  }}
-                >
-                  INTIMIDAÇÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "55px",
-                    marginTop: "137px",
-                  }}
-                >
-                  INTUIÇÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-            </Row>
-          </div>{" "}
-          <div style={{ display: "flex", justifyContent: "center", marginTop:"25px",}}>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "40px",
-                    marginTop: "136px",
-                  }}
-                >
-                  INVESTIGAÇÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "35px",
-                    marginTop: "135px",
-                  }}
-                >
-                  LIDAR C.ANIMAIS
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "53px",
-                    marginTop: "137px",
-                  }}
-                >
-                  MEDICINA
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-            </Row>
-          </div>
-
-          <div style={{ display: "flex", justifyContent: "center", marginTop:"25px",}}>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "50px",
-                    marginTop: "137px",
-                  }}
-                >
-                  NATUREZA
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "47px",
-                    marginTop: "137px",
-                  }}
-                >
-                  PERCEPÇÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "47px",
-                    marginTop: "137px",
-                  }}
-                >
-                  PERSUASÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-            </Row>
-          </div>
-          <div style={{ display: "flex", justifyContent: "center", marginTop:"25px",}}>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "33px",
-                    marginTop: "135px",
-                  }}
-                >
-                  PRESTIDIGITAÇÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "53px",
-                    marginTop: "138px",
-                  }}
-                >
-                  RELIGIÃO
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "10px",
-                    position: "absolute",
-                    marginLeft: "35px",
-                    marginTop: "135px",
-                  }}
-                >
-                  SOBREVIVÊNCIA
-                </span>
-                <Input
-                  type="text"
-                  style={{
-                    fontSize: "15px",
-                    width: "40px",
-                    border: "none",
-                    borderRadius: "50px",
-                    position: "absolute",
-                    marginTop: "40px",
-                    marginLeft: "53px",
-                  }}
-                />
-                <img style={{ width: "170px" }} src={pericias}></img>
-              </Col>
-            </Row>
-          </div>
-
-        </div>
         </TabPane>
         <TabPane tabId="3">
-
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
             <Row>
               <Col sm="4">
                 <span
@@ -762,7 +800,7 @@ const TabsBasic = () => {
                     marginTop: "-1px",
                   }}
                 >
-                 NOME
+                  NOME
                 </span>
                 <Input
                   type="text"
@@ -777,7 +815,14 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "200px", marginLeft: "-100px", marginTop: "25px" }} src={Nome_ficha}></img>
+                <img
+                  style={{
+                    width: "200px",
+                    marginLeft: "-100px",
+                    marginTop: "25px",
+                  }}
+                  src={Nome_ficha}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -805,7 +850,14 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "85px", marginTop: "20px", marginLeft: "10px"}} src={Ficha_bonus}></img>
+                <img
+                  style={{
+                    width: "85px",
+                    marginTop: "20px",
+                    marginLeft: "10px",
+                  }}
+                  src={Ficha_bonus}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -832,12 +884,20 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "180px", marginTop: "25px"}} src={Ficha_dano}></img>
+                <img
+                  style={{ width: "180px", marginTop: "25px" }}
+                  src={Ficha_dano}
+                ></img>
               </Col>
             </Row>
           </div>{" "}
-
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
             <Row>
               <Col sm="4">
                 <span
@@ -849,7 +909,7 @@ const TabsBasic = () => {
                     marginTop: "-1px",
                   }}
                 >
-                 NOME
+                  NOME
                 </span>
                 <Input
                   type="text"
@@ -864,7 +924,14 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "200px", marginLeft: "-100px", marginTop: "25px" }} src={Nome_ficha}></img>
+                <img
+                  style={{
+                    width: "200px",
+                    marginLeft: "-100px",
+                    marginTop: "25px",
+                  }}
+                  src={Nome_ficha}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -892,7 +959,14 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "85px", marginTop: "20px", marginLeft: "10px"}} src={Ficha_bonus}></img>
+                <img
+                  style={{
+                    width: "85px",
+                    marginTop: "20px",
+                    marginLeft: "10px",
+                  }}
+                  src={Ficha_bonus}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -919,12 +993,20 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "180px", marginTop: "25px"}} src={Ficha_dano}></img>
+                <img
+                  style={{ width: "180px", marginTop: "25px" }}
+                  src={Ficha_dano}
+                ></img>
               </Col>
             </Row>
           </div>{" "}
-
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}
+          >
             <Row>
               <Col sm="4">
                 <span
@@ -936,7 +1018,7 @@ const TabsBasic = () => {
                     marginTop: "-1px",
                   }}
                 >
-                 NOME
+                  NOME
                 </span>
                 <Input
                   type="text"
@@ -951,7 +1033,14 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "200px", marginLeft: "-100px", marginTop: "25px" }} src={Nome_ficha}></img>
+                <img
+                  style={{
+                    width: "200px",
+                    marginLeft: "-100px",
+                    marginTop: "25px",
+                  }}
+                  src={Nome_ficha}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -979,7 +1068,14 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "85px", marginTop: "20px", marginLeft: "10px"}} src={Ficha_bonus}></img>
+                <img
+                  style={{
+                    width: "85px",
+                    marginTop: "20px",
+                    marginLeft: "10px",
+                  }}
+                  src={Ficha_bonus}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -1006,18 +1102,29 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px .5px",
                   }}
                 />
-                <img style={{ width: "180px", marginTop: "25px"}} src={Ficha_dano}></img>
+                <img
+                  style={{ width: "180px", marginTop: "25px" }}
+                  src={Ficha_dano}
+                ></img>
               </Col>
             </Row>
           </div>{" "}
-      </TabPane>
-      <TabPane tabId="4">
-      <div style={{ display: "flex", justifyContent: "center" }}>
+        </TabPane>
+        <TabPane tabId="4">
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <img src={DivSup} style={{ width: "60%", height: "50%" }} />
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Row>
-            <img style={{ width: "400px", marginLeft: "320px", marginTop: "50px", borderRadius: "25px" }} src={Ferramentaria}></img>
+              <img
+                style={{
+                  width: "400px",
+                  marginLeft: "320px",
+                  marginTop: "50px",
+                  borderRadius: "25px",
+                }}
+                src={Ferramentaria}
+              ></img>
               <Col sm="4">
                 <span
                   style={{
@@ -1030,8 +1137,15 @@ const TabsBasic = () => {
                 >
                   FERRAMENTARIA
                 </span>
-                  
-                <img style={{ width: "130px", marginLeft: "-8px", marginTop: "-350px" }} src={Equipamentos}></img>
+
+                <img
+                  style={{
+                    width: "130px",
+                    marginLeft: "-8px",
+                    marginTop: "-350px",
+                  }}
+                  src={Equipamentos}
+                ></img>
               </Col>
               <Col sm="4">
                 <span
@@ -1041,8 +1155,7 @@ const TabsBasic = () => {
                     marginLeft: "52px",
                     marginTop: "9px",
                   }}
-                >
-                </span>
+                ></span>
                 <Input
                   type="text"
                   style={{
@@ -1056,7 +1169,7 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px 1px grey",
                   }}
                 />
-                 <Input
+                <Input
                   type="text"
                   style={{
                     fontSize: "15px",
@@ -1069,7 +1182,7 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px 1px grey",
                   }}
                 />
-                 <Input
+                <Input
                   type="text"
                   style={{
                     fontSize: "15px",
@@ -1095,7 +1208,7 @@ const TabsBasic = () => {
                     boxShadow: "1px 1px 1px 1px grey",
                   }}
                 />
-                  <Input
+                <Input
                   type="text"
                   style={{
                     fontSize: "15px",
@@ -1123,77 +1236,87 @@ const TabsBasic = () => {
                     boxShadow: "2px 2px 2px 2px grey",
                   }}
                 />
-                <img style={{ width: "200px", WebkitBorderRadius: "20px", boxShadow: "5px 5px 5px grey", marginTop: "-352px",marginLeft: "-134px" }} src={Equipamentos2}></img>
+                <img
+                  style={{
+                    width: "200px",
+                    WebkitBorderRadius: "20px",
+                    boxShadow: "5px 5px 5px grey",
+                    marginTop: "-352px",
+                    marginLeft: "-134px",
+                  }}
+                  src={Equipamentos2}
+                ></img>
               </Col>
-              </Row>
+            </Row>
           </div>
-      </TabPane>
+        </TabPane>
 
-      <TabPane tabId="5">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={DivSup} style={{ width: "60%", height: "50%" }} />
-        </div>
+        <TabPane tabId="5">
           <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src={DivSup} style={{ width: "60%", height: "50%" }} />
           </div>
-            <Row>
-              <Col sm="4">
-                <span
-                  style={{
-                    fontSize: "20px",
-                    fontFamily: "fantasy",
-                    position: "absolute",
-                    marginLeft: "125px",
-                    marginTop: "40px",
-                  }}
-                >
-                  CARACTERISTICAS
-                </span>
-                <Input
-                  type= "textarea"
-                  style={{
-                    fontSize: "15px",
-                    width: "235px",
-                    height: "200px",
-                    border: "none",
-                    borderRadius: "20px",
-                    position: "absolute",
-                    marginTop: "80px",
-                    marginLeft: "90px",
-                    boxShadow: "1px 1px 1px 1px grey",
-                  }}
-                />
+          <div style={{ display: "flex", justifyContent: "center" }}></div>
+          <Row>
+            <Col sm="4">
+              <span
+                style={{
+                  fontSize: "20px",
+                  fontFamily: "fantasy",
+                  position: "absolute",
+                  marginLeft: "125px",
+                  marginTop: "40px",
+                }}
+              >
+                CARACTERISTICAS
+              </span>
+              <Input
+                type="textarea"
+                style={{
+                  fontSize: "15px",
+                  width: "235px",
+                  height: "200px",
+                  border: "none",
+                  borderRadius: "20px",
+                  position: "absolute",
+                  marginTop: "80px",
+                  marginLeft: "90px",
+                  boxShadow: "1px 1px 1px 1px grey",
+                }}
+              />
 
-                <span
-                  style={{
-                    fontSize: "20px",
-                    fontFamily: "fantasy",
-                    position: "absolute",
-                    marginLeft: "445px",
-                    marginTop: "40px",
-                    
-                  }}
-                >
-                  HABILIDADES
-                </span>
-                <Input
-                  type="textarea"
-                  style={{
-                    fontSize: "15px",
-                    width: "235px",
-                    height: "200px",
-                    border: "none",
-                    borderRadius: "20px",
-                    position: "absolute",
-                    marginTop: "80px",
-                    marginLeft: "380px",
-                    boxShadow: "1px 1px 1px 1px grey",
-                  }}
-                />
-                <img style={{ width: "600px", marginLeft: "50px", marginTop: "0px" }} src={Caracteristicas}></img>
-              </Col>
-            </Row>            
-      </TabPane>
-    </TabContent>
+              <span
+                style={{
+                  fontSize: "20px",
+                  fontFamily: "fantasy",
+                  position: "absolute",
+                  marginLeft: "445px",
+                  marginTop: "40px",
+                }}
+              >
+                HABILIDADES
+              </span>
+              <Input
+                type="textarea"
+                style={{
+                  fontSize: "15px",
+                  width: "235px",
+                  height: "200px",
+                  border: "none",
+                  borderRadius: "20px",
+                  position: "absolute",
+                  marginTop: "80px",
+                  marginLeft: "380px",
+                  boxShadow: "1px 1px 1px 1px grey",
+                }}
+              />
+              <img
+                style={{ width: "600px", marginLeft: "50px", marginTop: "0px" }}
+                src={Caracteristicas}
+              ></img>
+            </Col>
+          </Row>
+        </TabPane>
+      </TabContent>
     </>
   );
 };
@@ -1209,7 +1332,7 @@ const Sala = () => {
   const [cardCadastro, setCardCadastro] = useState(false);
   const [nomePerssonagemDigitado, setNomePerssonagemDigitado] = useState("");
   const [personagens, setPersonagens] = useState([]);
-  
+  const history = useHistory();
 
   const buscaMsg = () => {
     api
@@ -1259,7 +1382,6 @@ const Sala = () => {
     });
   };
 
-
   const imprimeMsg = chats.map((chat) => {
     return (
       <>
@@ -1274,42 +1396,40 @@ const Sala = () => {
 
   const cadastraPerssonagem = () => {
     var body = {
-      "iduser": localStorage.getItem("id"),
-      "nome": nomePerssonagemDigitado,
-      "classenivel": "",
-      "antecedente": "",
-      "raca": "",
-      "pontosxp": 1,
-      "pontosatributo": 25,
-      "forca": 0,
-      "destreza": 0,
-      "constituicao": 0,
-      "inteligencia": 0,
-      "sabedoria": 0,
-      "carisma": 0
+      iduser: localStorage.getItem("id"),
+      nome: nomePerssonagemDigitado,
+      classenivel: "",
+      antecedente: "",
+      raca: "",
+      pontosxp: 1,
+      pontosatributo: 25,
+      forca: 0,
+      destreza: 0,
+      constituicao: 0,
+      inteligencia: 0,
+      sabedoria: 0,
+      carisma: 0,
     };
 
-  api.post('personagem/cadastrar', body).then((res) => {
-    console.log(res.data);
-    setCardCadastro(false);
-  });
-  }
+    api.post("personagem/cadastrar", body).then((res) => {
+      console.log(res.data);
+      setCardCadastro(false);
+      setNomePerssonagemDigitado("");
+    });
+  };
 
-  
-   useEffect(() => {
-    var usuario = localStorage.getItem("nick");
+  useEffect(() => {
+    var usuario = localStorage.getItem("id");
     api
-      .get("personagem/iduser/" + usuario)
+      .get("personagem/id/" + usuario)
       .then((response) => setPersonagens(response.data));
+  }, []);
 
-   }, [])
-
-   const listaPersonagens = personagens.map((r) => (
+  const listaPersonagens = personagens.map((r) => (
     <option key={r.id} value={r.id}>
       {r.nome}
     </option>
   ));
-    
 
   return (
     <>
@@ -1345,7 +1465,21 @@ const Sala = () => {
           />
         </div>
         <Row>
-          <Col sm="9"></Col>
+          <Col sm="9">
+            <div
+              style={{
+                color: "#fff",
+                marginTop: "18px",
+                marginLeft: "150px",
+                fontSize: "20px",
+              }}
+            >
+              Bem vindos à sala: {localStorage.getItem("nomeSala")} |{" "}
+              <Button title="Sair da Sala" color="danger" size="sm" onClick={() => history.push("/Hall")}>
+                <LogOut size="14px"></LogOut>
+              </Button>
+            </div>
+          </Col>
           <Col sm="2">
             <div
               style={{
@@ -1400,27 +1534,71 @@ const Sala = () => {
             >
               <UserPlus style={{ marginTop: "5px" }} size="16px" />
             </Button>
-            <div style={{display: cardCadastro === true ? 'flex': 'none', zIndex: 9999}}><Card style={{background: "green", width: "250px", height: "110px", border: "2px solid #000", borderRadius: "15px", position: "absolute"}}>
-              <Row>
-              <Col sm="12">
-              <Input 
-              type="text"
-              name="nomePerssonagem"
-              id="nomePerssonagem"
-              placeholder="Nome da perssonagem..."
-              onChange={(e) => setNomePerssonagemDigitado(e.target.value)}
-              style={{width: "90%", height: "30px", marginTop: "15px", marginLeft: "10px", borderRadius: "10px", border: "1px solid"}}
-              />
-                </Col>
-              </Row>
-              <Row>
-                <Col sm="12">
-                <div style={{marginTop: '15px', display: 'flex', justifyContent: "center", zIndex: 9999}}>
-                  <Button onClick={() => cadastraPerssonagem()}  color='danger'>Cadastrar</Button> <Button onClick={() => setCardCadastro(!cardCadastro)} color='danger' style={{marginLeft: '15px'}}>Cancelar</Button>
-                </div>
-                </Col>
-              </Row>
-              </Card></div>
+            <div
+              style={{
+                display: cardCadastro === true ? "flex" : "none",
+                zIndex: 9999,
+              }}
+            >
+              <Card
+                style={{
+                  background: "green",
+                  width: "250px",
+                  height: "110px",
+                  border: "2px solid #000",
+                  borderRadius: "15px",
+                  position: "absolute",
+                }}
+              >
+                <Row>
+                  <Col sm="12">
+                    <Input
+                      type="text"
+                      name="nomePerssonagem"
+                      id="nomePerssonagem"
+                      placeholder="Nome da perssonagem..."
+                      onChange={(e) =>
+                        setNomePerssonagemDigitado(e.target.value)
+                      }
+                      style={{
+                        width: "90%",
+                        height: "30px",
+                        marginTop: "15px",
+                        marginLeft: "10px",
+                        borderRadius: "10px",
+                        border: "1px solid",
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col sm="12">
+                    <div
+                      style={{
+                        marginTop: "15px",
+                        display: "flex",
+                        justifyContent: "center",
+                        zIndex: 9999,
+                      }}
+                    >
+                      <Button
+                        onClick={() => cadastraPerssonagem()}
+                        color="danger"
+                      >
+                        Cadastrar
+                      </Button>{" "}
+                      <Button
+                        onClick={() => setCardCadastro(!cardCadastro)}
+                        color="danger"
+                        style={{ marginLeft: "15px" }}
+                      >
+                        Cancelar
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              </Card>
+            </div>
             <Input
               onChange={(e) =>
                 localStorage.setItem("NomePersonagem", e.target.value)
@@ -1439,7 +1617,7 @@ const Sala = () => {
               }}
               type="select"
             >
-             {listaPersonagens}
+              {listaPersonagens}
             </Input>
             <img
               style={{ position: "absolute", zIndex: 9996, marginTop: "-28px" }}
@@ -1578,9 +1756,9 @@ const Sala = () => {
                   style={{ marginLeft: "65px" }}
                   color="danger"
                   onClick={() => {
-                    setHiddenD20(!hiddenD20)
-                    setValorD20(Math.floor(Math.random() * 20) + 1)
-                    enviaMsgDado(valorD20)
+                    setHiddenD20(!hiddenD20);
+                    setValorD20(Math.floor(Math.random() * 20) + 1);
+                    enviaMsgDado(valorD20);
                   }}
                 >
                   Fechar
@@ -1652,18 +1830,23 @@ const Sala = () => {
                     height: "289px",
                     padding: "15px",
                     whiteSpace: "normal",
-                    transformOrigin: '50% 50%', 
-                    transform: 'rotate(180deg)',
-                    overflowY: 'auto',
-                    direction: 'rtl',
-                    textAlign: 'left',
+                    transformOrigin: "50% 50%",
+                    transform: "rotate(180deg)",
+                    overflowY: "auto",
+                    direction: "rtl",
+                    textAlign: "left",
                   }}
                 >
-                 <div style={{  
-                   marginTop: '20px',
-                   float: 'left',
-                   width: '100%', 
-                   transform: 'rotate(180deg)' }}>{imprimeMsg}</div>
+                  <div
+                    style={{
+                      marginTop: "20px",
+                      float: "left",
+                      width: "100%",
+                      transform: "rotate(180deg)",
+                    }}
+                  >
+                    {imprimeMsg}
+                  </div>
                 </div>
                 <Row>
                   <Col sm="10">

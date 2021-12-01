@@ -78,8 +78,10 @@ const Hall = () => {
   };
 
   const acessarSalas = (dados) => {
+    console.log(dados)
       if(dados.senha === senhaSalaAcesso){
         localStorage.setItem("idSala", dados.idSala);
+        localStorage.setItem("nomeSala", dados.tituloSala);
         history.push("/Sala");
       }else{
         toast.error("Senha incorreta !");
@@ -147,7 +149,7 @@ const Hall = () => {
                   marginLeft: "15px",
                 }}
               />
-              <Button color="danger" size="sm" onClick={() => acessarSalas({senha: f.senha, idSala: f._id})}>
+              <Button color="danger" size="sm" onClick={() => acessarSalas({senha: f.senha, idSala: f._id, tituloSala: f.nome})}>
                 ENTRAR <LogIn size="14px" />
               </Button>
             </div>
