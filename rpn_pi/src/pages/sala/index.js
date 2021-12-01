@@ -687,7 +687,7 @@ const Sala = () => {
 
   
    useEffect(() => {
-    var usuario = localStorage.getItem("id");
+    var usuario = localStorage.getItem("nick");
     api
       .get("personagem/iduser/" + usuario)
       .then((response) => setPersonagens(response.data));
