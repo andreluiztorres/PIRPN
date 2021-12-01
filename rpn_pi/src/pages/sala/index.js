@@ -1159,7 +1159,7 @@ const TabsBasic = () => {
                     position: "absolute",
                     marginTop: "80px",
                     marginLeft: "90px",
-                    boxShadow: "1px 1px 1px 1px black",
+                    boxShadow: "1px 1px 1px 1px grey",
                   }}
                 />
 
@@ -1186,7 +1186,7 @@ const TabsBasic = () => {
                     position: "absolute",
                     marginTop: "80px",
                     marginLeft: "380px",
-                    boxShadow: "1px 1px 1px 1px black",
+                    boxShadow: "1px 1px 1px 1px grey",
                   }}
                 />
                 <img style={{ width: "600px", marginLeft: "50px", marginTop: "0px" }} src={Caracteristicas}></img>
