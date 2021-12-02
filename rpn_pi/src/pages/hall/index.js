@@ -34,7 +34,7 @@ let Personagens = [
   {
     id: 1,
     descricao: "Guerreiro",
-    img: "https://dragoesdosreinos.files.wordpress.com/2010/05/guerreiro.jpg",
+    img: "https://i0.wp.com/orbedosdragoes.com/wp-content/uploads/2017/06/DD5-Guerreiro.jpg?resize=515%2C1000",
   },
   {
     id: 2,
@@ -50,6 +50,11 @@ let Personagens = [
     id: 4,
     descricao: "Orc",
     img: "https://vistapointe.net/images/orc-wallpaper-11.jpg",
+  },
+  {
+    id: 5,
+    descricao: "Barbaro",
+    img: "https://i.pinimg.com/originals/1e/aa/49/1eaa4959d22dae85ad3dac39a50649bc.jpg",
   },
 ];
 
@@ -341,12 +346,13 @@ const Hall = () => {
                       >
                         <span
                           style={{
+                            position: "absolute",
                             color: "Black",
-                            fontSize: "25px",
+                            fontSize: "35px",
                             fontFamily: "fantasy",
                             fontWeight: "bold",
-                            marginTop: "30px",
-                            marginLeft: "220px",
+                            marginTop: "-370px",
+                            marginLeft: "-45px",
                           }}
                         >
                           {slideImage.descricao}
