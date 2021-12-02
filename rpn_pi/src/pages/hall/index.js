@@ -33,18 +33,23 @@ const opts = {
 let Personagens = [
   {
     id: 1,
-    descricao: "Orcs",
-    img: "https://img.quizur.com/f/img5d5dfc1db37f33.23328030.jpg?lastEdited=1566440489",
+    descricao: "Guerreiro",
+    img: "https://dragoesdosreinos.files.wordpress.com/2010/05/guerreiro.jpg",
   },
   {
     id: 2,
-    descricao: "Guerreiro",
-    img: "https://ovelhinhodorpg.files.wordpress.com/2015/11/807070cb0794525a7c7ffc6b0342375a.jpg",
+    descricao: "Mago",
+    img: "https://i.pinimg.com/originals/d3/99/0f/d3990fcd8a2620b06a25df0fa4d11b15.png",
   },
   {
     id: 3,
-    descricao: "Mago",
-    img: "https://cdn.ligadosgames.com/imagens/nomes-para-personagens-de-rpg-og.jpg",
+    descricao: "Arqueiro",
+    img: "https://i2.wp.com/orbedosdragoes.com/wp-content/uploads/2020/05/dd5-arquetipo-de-patrilheiro-arqueiro-da-floresta-alta.jpg?ssl=1",
+  },
+  {
+    id: 4,
+    descricao: "Orc",
+    img: "https://vistapointe.net/images/orc-wallpaper-11.jpg",
   },
 ];
 
@@ -330,16 +335,18 @@ const Hall = () => {
                           backgroundImage: "url(" + slideImage.img + ")",
                           backgroundSize: "cover",
                           overflow: "hidden",
-                          height: "250px",
+                          height: "50px",
                           padding: "400px",
                         }}
                       >
                         <span
                           style={{
-                            color: "#fff",
+                            color: "Black",
+                            fontSize: "25px",
+                            fontFamily: "fantasy",
                             fontWeight: "bold",
                             marginTop: "30px",
-                            marginLeft: "20px",
+                            marginLeft: "220px",
                           }}
                         >
                           {slideImage.descricao}
