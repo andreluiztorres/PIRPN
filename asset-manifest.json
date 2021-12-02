@@ -1,19 +1,20 @@
 {
   "files": {
     "main.css": "/PIRPN/static/css/main.8401f4d7.chunk.css",
-    "main.js": "/PIRPN/static/js/main.523aa7ac.chunk.js",
-    "main.js.map": "/PIRPN/static/js/main.523aa7ac.chunk.js.map",
+    "main.js": "/PIRPN/static/js/main.d75ae46c.chunk.js",
+    "main.js.map": "/PIRPN/static/js/main.d75ae46c.chunk.js.map",
     "runtime-main.js": "/PIRPN/static/js/runtime-main.0e07fcef.js",
     "runtime-main.js.map": "/PIRPN/static/js/runtime-main.0e07fcef.js.map",
     "static/css/2.33fa1858.chunk.css": "/PIRPN/static/css/2.33fa1858.chunk.css",
-    "static/js/2.64576f62.chunk.js": "/PIRPN/static/js/2.64576f62.chunk.js",
-    "static/js/2.64576f62.chunk.js.map": "/PIRPN/static/js/2.64576f62.chunk.js.map",
+    "static/js/2.22f9f490.chunk.js": "/PIRPN/static/js/2.22f9f490.chunk.js",
+    "static/js/2.22f9f490.chunk.js.map": "/PIRPN/static/js/2.22f9f490.chunk.js.map",
     "index.html": "/PIRPN/index.html",
     "static/css/2.33fa1858.chunk.css.map": "/PIRPN/static/css/2.33fa1858.chunk.css.map",
     "static/css/main.8401f4d7.chunk.css.map": "/PIRPN/static/css/main.8401f4d7.chunk.css.map",
-    "static/js/2.64576f62.chunk.js.LICENSE.txt": "/PIRPN/static/js/2.64576f62.chunk.js.LICENSE.txt",
+    "static/js/2.22f9f490.chunk.js.LICENSE.txt": "/PIRPN/static/js/2.22f9f490.chunk.js.LICENSE.txt",
     "static/media/FotoTeste.74fd38f2.jpg": "/PIRPN/static/media/FotoTeste.74fd38f2.jpg",
     "static/media/LogoRPN.afb203fe.png": "/PIRPN/static/media/LogoRPN.afb203fe.png",
+    "static/media/caracteristicas.f9f0611a.png": "/PIRPN/static/media/caracteristicas.f9f0611a.png",
     "static/media/d20.92c667d1.png": "/PIRPN/static/media/d20.92c667d1.png",
     "static/media/d20_1.25e80e14.gif": "/PIRPN/static/media/d20_1.25e80e14.gif",
     "static/media/d20_10.8e4cc1fb.gif": "/PIRPN/static/media/d20_10.8e4cc1fb.gif",
@@ -35,17 +36,24 @@
     "static/media/d20_7.1011c534.gif": "/PIRPN/static/media/d20_7.1011c534.gif",
     "static/media/d20_8.51e15cf2.gif": "/PIRPN/static/media/d20_8.51e15cf2.gif",
     "static/media/d20_9.7c1c1b0d.gif": "/PIRPN/static/media/d20_9.7c1c1b0d.gif",
+    "static/media/equipamentos.5e8618ed.png": "/PIRPN/static/media/equipamentos.5e8618ed.png",
+    "static/media/equipamentos2.611c32d9.png": "/PIRPN/static/media/equipamentos2.611c32d9.png",
+    "static/media/ferramentaria.bcb7a9a8.png": "/PIRPN/static/media/ferramentaria.bcb7a9a8.png",
+    "static/media/ficha-bonus.574e1350.png": "/PIRPN/static/media/ficha-bonus.574e1350.png",
+    "static/media/ficha-dano.c8b63589.png": "/PIRPN/static/media/ficha-dano.c8b63589.png",
     "static/media/bootstrap.css": "/PIRPN/static/media/glyphicons-halflings-regular.be810be3.woff2",
     "static/media/headerskull.11a266c5.png": "/PIRPN/static/media/headerskull.11a266c5.png",
     "static/media/layerssmall.50049769.png": "/PIRPN/static/media/layerssmall.50049769.png",
     "static/media/map.fa680e4a.png": "/PIRPN/static/media/map.fa680e4a.png",
+    "static/media/nome-ficha.eb6be197.png": "/PIRPN/static/media/nome-ficha.eb6be197.png",
+    "static/media/pericias.5fa27abe.png": "/PIRPN/static/media/pericias.5fa27abe.png",
     "static/media/ribbonmedium.c607faac.png": "/PIRPN/static/media/ribbonmedium.c607faac.png"
   },
   "entrypoints": [
     "static/js/runtime-main.0e07fcef.js",
     "static/css/2.33fa1858.chunk.css",
-    "static/js/2.64576f62.chunk.js",
+    "static/js/2.22f9f490.chunk.js",
     "static/css/main.8401f4d7.chunk.css",
-    "static/js/main.523aa7ac.chunk.js"
+    "static/js/main.d75ae46c.chunk.js"
   ]
 }
