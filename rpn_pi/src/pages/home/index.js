@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Cadastro from "../CadastroUsuario";
 import {Card, Row, Col, Input, Button, CardBody, CardHeader} from 'reactstrap'
 import LogoRPN from '../../assets/images/LogoRPN.png'
 
@@ -26,7 +27,7 @@ const Home = () => {
             >
             </Input></Col>
             <Col sm="2"><Button color='danger'>Login</Button></Col>
-            <Col sm="2"><Link><div style={{textAlign: "center", fontSize: '13px', marginLeft: "-20px"}}><strong>Cadastrar Agora</strong></div></Link></Col>
+            <Col sm="2"><Link><div style={{textAlign: "center", fontSize: '13px', marginLeft: "-20px"}}><strong>Cadastrar Agora</strong></div> </Link></Col>
             </Row>
             </div>
             </Col>
